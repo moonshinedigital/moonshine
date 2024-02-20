@@ -2,20 +2,20 @@
 // | Outline
 // | -------------------------------------------------------------
 
-@mixin outline {
-  outline: 2px dotted black;
-  outline-color: black;
-  outline-offset: 0;
-  -webkit-box-shadow: 0 0 0 2px white;
-  box-shadow: 0 0 0 2px white;
-}
+// @mixin outline {
+//   outline: 2px dotted black;
+//   outline-color: black;
+//   outline-offset: 0;
+//   -webkit-box-shadow: 0 0 0 2px white;
+//   box-shadow: 0 0 0 2px white;
+// }
 
-*:focus,
-*:focus-visible {
-  @include outline;
-}
+// *:focus,
+// *:focus-visible {
+//   @include outline;
+// }
 
-*:focus:not(:focus-visible) {
-  outline: none;
-  box-shadow: none;
-}
+// *:focus:not(:focus-visible) {
+//   outline: none;
+//   box-shadow: none;
+// }

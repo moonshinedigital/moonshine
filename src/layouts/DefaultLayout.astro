@@ -49,22 +49,22 @@ const {
         --font-family-default: 'Open Sans', sans-serif;
         --font-family-special: 'Open Sans', sans-serif;
         // light theme
-        --font-color: var(--neutral-900);
-        --action-color: var(--primary-300);
-        --action-color-state: var(--primary-500);
-        --background: var(--neutral-100);
-        --primary-background: var(--primary-100);
-        --neutral-background: var(--neutral-200);
+        --font-color: theme(colors.neutral.900);
+        --action-color: theme(colors.primary.300);
+        --action-color-state: theme(colors.primary.500);
+        --background: theme(colors.neutral.100);
+        --primary-background: theme(colors.primary.100);
+        --neutral-background: theme(colors.neutral.200);
       }
 
       // dark color scheme overrides
       .darkmode {
-        --font-color: var(--neutral-100);
-        --action-color: var(--secondary-100);
-        --action-color-state: var(--secondary-500);
-        --background: var(--dark-100);
-        --primary-background: var(--primary-500);
-        --neutral-background: var(--neutral-900);
+        --font-color: theme(colors.neutral.100);
+        --action-color: theme(colors.secondary.100);
+        --action-color-state: theme(colors.secondary.500);
+        --background: theme(colors.dark.100);
+        --primary-background: theme(colors.primary.500);
+        --neutral-background: theme(colors.neutral.900);
       }
 
       // sticky footer on low content pages

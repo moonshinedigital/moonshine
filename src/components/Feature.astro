@@ -15,7 +15,7 @@ const { icon = 'mdi:rocket', title = 'Title' } = Astro.props
 </div>
 
 <style lang="scss">
-  @use '../assets/scss/base/breakpoint' as *;
+  // @use '../assets/scss/base/breakpoint' as *;
 
   .feature {
     position: relative;
@@ -27,9 +27,9 @@ const { icon = 'mdi:rocket', title = 'Title' } = Astro.props
       z-index: 2;
     }
 
-    @include breakpoint(large) {
-      width: 100%;
-    }
+    // @include breakpoint(large) {
+    //   width: 100%;
+    // }
 
     &::before,
     &::after {
@@ -39,10 +39,10 @@ const { icon = 'mdi:rocket', title = 'Title' } = Astro.props
 
     &::before {
       inset: 0;
-      background-color: var(--neutral-100);
-      border: 3px solid var(--neutral-700);
+      background-color: theme('colors.neutral.100');
+      border: 3px solid theme('colors.neutral.700');
       border-radius: 1rem;
-      box-shadow: 0 0 0 6px var(--neutral-100);
+      box-shadow: 0 0 0 6px theme('colors.neutral.100');
       z-index: 1;
     }
 
@@ -61,7 +61,7 @@ const { icon = 'mdi:rocket', title = 'Title' } = Astro.props
   }
 
   :global(.darkmode .feature::before) {
-    background-color: var(--dark-100);
-    box-shadow: 0 0 0 6px var(--dark-100);
+    background-color: theme('colors.dark.100');
+    box-shadow: 0 0 0 6px theme('colors.dark.100');
   }
 </style>
