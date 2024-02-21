@@ -6,11 +6,11 @@ import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
 
 const {
-  title = 'Astro',
-  description = 'A starter project with accessibility features using Astro static site builder. Contains accessible landmarks, skip links, a dark mode color scheme, better focus outline and keyboard menu navigation.',
+  title = 'Moonshine',
+  description = 'Moonshine is a digital studio that helps startups and small businesses define, design, and build exceptional brands and innovative products.',
   url,
   image = '/social-preview-image.png',
-  author = 'Mark Teekman',
+  author = 'Moonshine',
 } = Astro.props
 ---
 
@@ -34,11 +34,9 @@ const {
     />
   </head>
   <body>
-    <Header />
-    <main id="main-content" transition:animate="fade">
+    <main id="main-content">
       <slot />
     </main>
-    <Footer />
     <style lang="scss" is:global>
       // theme settings
       :root {
