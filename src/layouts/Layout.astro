@@ -1,0 +1,44 @@
+---
+import '@fontsource/inter/latin-400.css'
+import '@fontsource/inter/latin-500.css'
+import { ViewTransitions } from 'astro:transitions'
+import Footer from '../components/layout/Footer.astro'
+import Header from '../components/layout/Header.astro'
+
+interface Props {
+  description: string
+  title: string
+}
+
+const { description, title } = Astro.props
+---
+
+<!doctype html>
+<html lang="en" x-data x-cloak x-bind:class="{ 'dark': $store.theme.isDark }">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <ViewTransitions />
+  </head>
+  <body
+    class="bg-primary-50 text-primary-950 antialiased transition dark:bg-primary-950 dark:text-primary-200"
+  >
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+    <style is:global>
+      [x-cloak] {
+        display: none !important;
+      }
+    </style>
+    <script>
+      import '../utils/alpineConfig'
+    </script>
+  </body>
+</html>
