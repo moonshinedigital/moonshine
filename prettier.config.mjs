@@ -6,18 +6,15 @@ export default {
   trailingComma: 'es5',
   arrowParens: 'avoid',
   proseWrap: 'always',
+  bracketSameLine: true,
 
   // Options should align with .editorconfig
-  printWidth: 100,
+  printWidth: 120,
   tabWidth: 2,
   useTabs: false,
   endOfLine: 'lf',
 
-  plugins: [
-    'prettier-plugin-astro',
-    'prettier-plugin-astro-organize-imports',
-    'prettier-plugin-tailwindcss',
-  ],
+  plugins: ['prettier-plugin-astro', 'prettier-plugin-tailwindcss', 'prettier-plugin-astro-organize-imports'],
   overrides: [
     {
       files: '*.astro',

@@ -1,12 +1,17 @@
-import { defineConfig } from "astro/config";
-import tailwind from "@astrojs/tailwind";
+import { defineConfig } from 'astro/config'
+import tailwind from '@astrojs/tailwind'
 
-import alpinejs from "@astrojs/alpinejs";
+import alpinejs from '@astrojs/alpinejs'
 
 // https://astro.build/config
 export default defineConfig({
   devToolbar: {
     enabled: false,
   },
-  integrations: [tailwind(), alpinejs()],
-});
+  integrations: [
+    tailwind({
+      applyBaseStyles: false,
+    }),
+    alpinejs(),
+  ],
+})
