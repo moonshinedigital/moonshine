@@ -9,12 +9,16 @@ export default {
   bracketSameLine: true,
 
   // Options should align with .editorconfig
-  printWidth: 120,
+  printWidth: 100,
   tabWidth: 2,
   useTabs: false,
   endOfLine: 'lf',
 
-  plugins: ['prettier-plugin-astro', 'prettier-plugin-tailwindcss', 'prettier-plugin-astro-organize-imports'],
+  plugins: [
+    'prettier-plugin-astro',
+    'prettier-plugin-tailwindcss',
+    'prettier-plugin-astro-organize-imports',
+  ],
   overrides: [
     {
       files: '*.astro',
