@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  [x-cloak] {
+    display: none !important;
+  }
+}
+
+@layer components {
+}
+
+body {
+  @apply bg-primary-50 text-primary-950 antialiased transition dark:bg-primary-950 dark:text-primary-200;
+}

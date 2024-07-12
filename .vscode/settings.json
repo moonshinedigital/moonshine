@@ -1,8 +1,8 @@
 {
   "files.exclude": {
-    "**/.astro": false,
-    "**/.vscode": false,
-    "**/node_modules": false
+    "**/.astro": true,
+    "**/.vscode": true,
+    "**/node_modules": true
   },
   "files.associations": {
     "*.css": "tailwindcss",

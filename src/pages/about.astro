@@ -1,16 +1,200 @@
 ---
-import Heading from '../components/about/Heading.astro'
-import Mission from '../components/about/Mission.astro'
-import Team from '../components/about/Team.astro'
-import Values from '../components/about/Values.astro'
+import { Image } from 'astro:assets'
+import aboutImage from '~/assets/images/about.webp'
 import Layout from '../layouts/Layout.astro'
+const stats = [
+  {
+    name: 'Years',
+    value: '9',
+  },
+  {
+    name: 'Experts',
+    value: '15',
+  },
+  {
+    name: 'Projects',
+    value: '122',
+  },
+  {
+    name: 'Awards',
+    value: "'9'",
+  },
+]
+
+const values = [
+  [
+    {
+      ref: '01',
+      name: 'Excellence',
+      description:
+        'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
+    },
+    {
+      ref: '02',
+      name: 'Innovation',
+      description:
+        'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
+    },
+  ],
+  [
+    {
+      ref: '03',
+      name: 'Teamwork',
+      description:
+        'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
+    },
+    {
+      ref: '04',
+      name: 'Respect',
+      description:
+        'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
+    },
+  ],
+]
+
+const team = [
+  {
+    name: 'Floyd Lowe',
+    image: '/assets/images/team-1.webp',
+    job: 'Senior Designer',
+  },
+  {
+    name: 'Emma Dorsey',
+    image: '/assets/images/team-2.webp',
+    job: 'Principal Designer',
+  },
+  {
+    name: 'Emily Mitchell',
+    image: '/assets/images/team-3.webp',
+    job: 'Senior Developer',
+  },
+]
 ---
 
 <Layout
   description="Find more our history, values, mission and more. We are a group of people who share the same values."
   title="About · Stone">
-  <Heading />
-  <Mission />
-  <Values />
-  <Team />
+  <!-- HEADING -->
+  <section class="py-16 sm:py-20">
+    <div class="mx-auto max-w-2xl px-4 text-center sm:px-6 lg:max-w-7xl lg:px-8">
+      <div class="flex flex-col gap-4 sm:gap-6">
+        <h1 class="text-4xl font-medium tracking-tight sm:text-5xl lg:text-6xl">About</h1>
+        <p class="mx-auto max-w-xl text-lg text-primary-950/70 dark:text-primary-200/70 sm:text-xl">
+          We build products for developers and designers.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSON -->
+  <section class="py-16 sm:py-20">
+    <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+      <div class="grid gap-16 lg:grid-cols-2 lg:gap-24">
+        <Image
+          src={aboutImage}
+          alt="Our experts working together"
+          width={576}
+          height={864}
+          class="mx-auto h-auto w-full max-w-xl rounded-3xl"
+        />
+        <div class="flex flex-col gap-10">
+          <!-- Mission description -->
+          <div class="space-y-8 sm:space-y-12">
+            <h2 class="text-3xl font-medium tracking-tight sm:text-4xl">Our mission</h2>
+            <div class="space-y-6">
+              <p class="text-base text-primary-950/70 dark:text-primary-200/70 sm:text-lg">
+                Sagittis scelerisque nulla cursus in enim consectetur quam. Dictum urna sed
+                consectetur neque tristique pellentesque. Blandit amet, sed aenean erat arcu morbi.
+                Cursus faucibus nunc nisl netus morbi vel porttitor vitae ut. Amet vitae fames
+                senectus vitae.
+              </p>
+              <p class="text-base text-primary-950/70 dark:text-primary-200/70 sm:text-lg">
+                Sollicitudin tristique eros erat odio sed vitae, consequat turpis elementum. Lorem
+                nibh vel, eget pretium arcu vitae. Eros eu viverra donec ut volutpat donec laoreet
+                quam urna. Sollicitudin tristique eros erat odio sed vitae, consequat turpis
+                elementum. Lorem nibh vel, eget pretium arcu vitae. Eros eu viverra donec ut
+                volutpat donec laoreet quam urna.
+              </p>
+              <p class="text-base text-primary-950/70 dark:text-primary-200/70 sm:text-lg">
+                Rhoncus nisl, libero egestas diam fermentum dui. At quis tincidunt vel ultricies.
+                Vulputate aliquet velit faucibus semper. Pellentesque in venenatis vestibulum
+                consectetur nibh id. In id ut tempus egestas. Enim sit aliquam nec, a. Morbi enim
+                fermentum lacus in. Viverra.
+              </p>
+            </div>
+          </div>
+
+          <!-- Stats -->
+          <dl class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+            {
+              stats.map(stat => (
+                <div class="rounded-3xl border border-primary-900/10 p-6 dark:border-primary-300/10">
+                  <dt class="text-base">{stat.name}</dt>
+                  <dd class="text-3xl font-medium tracking-tight">{stat.value}</dd>
+                </div>
+              ))
+            }
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUES -->
+  <section class="py-16 sm:py-20">
+    <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+      <div class="flex flex-col gap-8 lg:gap-12">
+        <h2 class="text-3xl font-medium tracking-tight sm:text-4xl">Our Values</h2>
+        <div class="grid gap-8 lg:grid-cols-2">
+          {
+            values.map((column, index) => (
+              <div class:list={['space-y-8', index === 1 && 'lg:mt-16']}>
+                {column.map(value => (
+                  <div class="flex flex-col gap-12 rounded-3xl bg-primary-500/10 px-6 py-8 dark:bg-primary-400/10">
+                    <p class="text-sm">{value.ref}</p>
+                    <div class="flex flex-col gap-4">
+                      <h3 class="text-xl font-medium">{value.name}</h3>
+                      <p class="text-base text-primary-950/70 dark:text-primary-200/70 sm:text-lg">
+                        {value.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="py-16 sm:py-20">
+    <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+      <div class="sm:space-8 space-y-12">
+        <h2 class="text-3xl font-medium tracking-tight sm:text-4xl">Meet our team</h2>
+        <ul class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {
+            team.map(item => (
+              <li class="rounded-3xl border border-primary-900/10 px-6 py-8 dark:border-primary-300/10">
+                <div class="space-y-6">
+                  <Image
+                    src={item.image}
+                    alt={`Portrait of ${item.name}`}
+                    width={64}
+                    height={64}
+                    class="mx-auto h-auto w-16 rounded-full object-cover"
+                  />
+                  <div class="text-center">
+                    <h3 class="text-lg font-medium">{item.name}</h3>
+                    <p class="text-base text-primary-950/70 dark:text-primary-200/70">{item.job}</p>
+                  </div>
+                </div>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </section>
 </Layout>

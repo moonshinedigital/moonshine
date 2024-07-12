@@ -1,20 +1,303 @@
 ---
-import About from '../components/home/About.astro'
-import Cta from '../components/home/Cta.astro'
-import Expertise from '../components/home/Expertise.astro'
-import Hero from '../components/home/Hero.astro'
-import Services from '../components/home/Services.astro'
-import Testimonials from '../components/home/Testimonials.astro'
+import { Image } from 'astro:assets'
+import heroImage from '../assets/images/hero.webp'
 import Layout from '../layouts/Layout.astro'
+
+const services = [
+  {
+    step: '01',
+    name: 'Design',
+    description:
+      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
+  },
+  {
+    step: '02',
+    name: 'Develop',
+    description:
+      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
+  },
+  {
+    step: '03',
+    name: 'Maintain',
+    description:
+      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
+  },
+]
+
+const features = [
+  {
+    id: 'expertise-1',
+    name: 'Digital Experience Platforms',
+    description:
+      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
+  },
+  {
+    id: 'expertise-2',
+    name: 'Web & Mobile Development',
+    description:
+      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
+  },
+  {
+    id: 'expertise-3',
+    name: 'Serverless Computing Platforms',
+    description:
+      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
+  },
+  {
+    id: 'expertise-4',
+    name: 'Build & Test Automation Tools',
+    description:
+      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
+  },
+  {
+    id: 'expertise-5',
+    name: 'Artificial Intelligence',
+    description:
+      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
+  },
+  {
+    id: 'expertise-6',
+    name: 'Full project support',
+    description:
+      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
+  },
+]
+
+const testimonials = [
+  {
+    name: 'Rebecca Hayes',
+    description: 'Designer',
+    image: '/assets/images/testimonial-1.webp',
+    message:
+      '“Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.”',
+  },
+  {
+    name: 'Rosa Spencer',
+    description: 'Team Leader',
+    image: '/assets/images/testimonial-2.webp',
+    message:
+      '“Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.”',
+  },
+  {
+    name: 'Christina Upton',
+    description: 'Manager',
+    image: '/assets/images/testimonial-3.webp',
+    message:
+      '“Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.”',
+  },
+]
 ---
 
 <Layout
   description="Stone is a premium Astro theme specially designed for Business, Marketing, SaaS and Startup websites."
   title="Stone · Premium Astro template">
-  <Hero />
-  <Services />
-  <Expertise />
-  <About />
-  <Testimonials />
-  <Cta />
+  <!-- HERO -->
+  <section class="py-16 sm:py-20">
+    <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+      <div class="flex flex-col gap-16">
+        <div class="flex flex-col items-start gap-8 sm:gap-10">
+          <div class="flex max-w-xl flex-col items-start gap-4 sm:gap-6">
+            <h1 class="text-4xl font-medium tracking-tight sm:text-5xl lg:text-6xl">
+              We design and build your next digital experience
+            </h1>
+            <p class="text-lg text-primary-950/70 dark:text-primary-200/70 sm:text-xl">
+              Anim aute id magna aliqua ad ad non deserunt sunt.
+            </p>
+          </div>
+          <a
+            href="/pricing"
+            class="inline-flex items-center justify-center rounded-full border border-transparent bg-primary-600 px-5 py-3 text-base font-medium text-white transition hover:bg-primary-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600 dark:bg-primary-400 dark:text-primary-950 dark:hover:bg-primary-300 dark:focus-visible:outline-primary-400">
+            Get started
+          </a>
+        </div>
+        <Image
+          src={heroImage}
+          alt="Hero"
+          width={1280}
+          height={640}
+          class="h-auto w-full rounded-3xl"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="py-16 sm:py-20">
+    <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+      <div class="flex flex-col gap-12 sm:gap-16">
+        <h2 class="text-3xl font-medium tracking-tight sm:text-4xl">Services</h2>
+        <div class="grid gap-8 lg:grid-cols-3">
+          {
+            services.map(service => (
+              <div class="flex flex-col gap-12 rounded-3xl bg-primary-500/10 px-6 py-8 dark:bg-primary-400/10">
+                <p class="text-sm">{service.step}</p>
+                <div class="flex flex-col gap-4">
+                  <h3 class="text-xl font-medium">{service.name}</h3>
+                  <p class="text-base text-primary-950/70 dark:text-primary-200/70 sm:text-lg">
+                    {service.description}
+                  </p>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERTISE -->
+  <section class="py-16 sm:py-20">
+    <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+      <div class="grid gap-12 lg:grid-cols-3 lg:gap-8">
+        <h2 class="text-3xl font-medium tracking-tight sm:text-4xl">Expertise</h2>
+        <div class="lg:col-span-2">
+          <dl
+            class="-mt-3"
+            x-data="{ selected: null, toggle(value) { this.selected = this.selected === value ? null : value } }">
+            {
+              features.map((feature, index) => (
+                <div
+                  class="rounded-3xl px-4 transition"
+                  x-data={`{ id: ${index}, get isOpen() { return this.id === this.selected }, get isNextOpen() { return (this.id + 1) === this.selected } }`}
+                  x-bind:class="{ 'bg-primary-500/10 dark:bg-primary-400/10': isOpen }">
+                  <dt
+                    class="border-b text-lg transition"
+                    x-cloak
+                    x-bind:class="{ 'border-transparent': isOpen || isNextOpen, 'border-primary-900/10 dark:border-primary-300/10': !(isOpen || isNextOpen) }">
+                    <button
+                      type="button"
+                      class="group block w-full py-6 text-left transition focus-visible:outline-none"
+                      aria-controls={feature.id}
+                      x-on:click="toggle(id)"
+                      aria-expanded="false"
+                      x-bind:aria-expanded="isOpen.toString()">
+                      <div class="flex items-center justify-between rounded-3xl group-focus-visible:outline group-focus-visible:outline-2 group-focus-visible:outline-offset-2 group-focus-visible:outline-primary-950 dark:group-focus-visible:outline-primary-200">
+                        <span class="font-medium">{feature.name}</span>
+                        <span class="ml-6 flex h-7 items-center">
+                          <svg
+                            class="h-6 w-6 rotate-0 transform text-primary-600 transition duration-200 ease-in-out dark:text-primary-400"
+                            x-bind:class="{ '-rotate-180': isOpen, 'rotate-0': !isOpen }"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            aria-hidden="true">
+                            <path d="M11.9997 13.1714L16.9495 8.22168L18.3637 9.63589L11.9997 15.9999L5.63574 9.63589L7.04996 8.22168L11.9997 13.1714Z" />
+                          </svg>
+                        </span>
+                      </div>
+                    </button>
+                  </dt>
+                  <dd class="pb-6 pr-6" id={feature.id} x-show="isOpen" x-cloak x-collapse>
+                    <p class="text-base text-primary-950/70 dark:text-primary-200/70">
+                      {feature.description}
+                    </p>
+                  </dd>
+                </div>
+              ))
+            }
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="py-16 sm:py-20">
+    <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+      <div class="grid gap-12 lg:grid-cols-3 lg:gap-8">
+        <h2 class="text-3xl font-medium tracking-tight sm:text-4xl">About</h2>
+        <div class="flex flex-col items-start gap-8 sm:gap-10 lg:col-span-2">
+          <p class="text-base text-primary-950/70 dark:text-primary-200/70 sm:text-lg">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis
+            suscipit eaque, iste dolor cupiditate blanditiis ratione. Lorem ipsum, dolor sit amet
+            consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor
+            cupiditate blanditiis ratione. Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+            Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis
+            suscipit eaque, iste dolor cupiditate.
+          </p>
+          <a
+            href="/about"
+            class="inline-flex items-center justify-center rounded-full border border-transparent bg-primary-600 px-5 py-3 text-base font-medium text-white transition hover:bg-primary-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600 dark:bg-primary-400 dark:text-primary-950 dark:hover:bg-primary-300 dark:focus-visible:outline-primary-400">
+            Read about us
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="py-16 sm:py-20">
+    <div class="v mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+      <div class="flex flex-col items-center gap-12 lg:gap-20">
+        <h2 class="mx-auto max-w-xl text-center text-3xl font-medium tracking-tight sm:text-4xl">
+          Trusted by the largest companies in the world
+        </h2>
+        <div
+          class="grid divide-y divide-primary-900/10 dark:divide-primary-300/10 lg:grid-cols-3 lg:divide-x lg:divide-y-0">
+          {
+            testimonials.map(testimonial => (
+              <figure class="mx-auto flex max-w-lg flex-col items-center gap-6 py-8 lg:px-8 lg:py-0">
+                <div class="flex flex-row gap-2">
+                  {[...Array(3)].map(() => (
+                    <svg
+                      class="h-6 w-6 text-primary-600 dark:text-primary-400"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true">
+                      <path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z" />
+                    </svg>
+                  ))}
+                </div>
+                <blockquote class="text-center text-lg italic leading-loose text-primary-950/70 dark:text-primary-200/70">
+                  <p>{testimonial.message}</p>
+                </blockquote>
+                <figcaption class="flex flex-col gap-4">
+                  <Image
+                    src={testimonial.image}
+                    alt={`Portrait of ${testimonial.name}`}
+                    width={48}
+                    height={48}
+                    class="mx-auto h-12 w-12 rounded-full object-cover"
+                  />
+                  <div class="text-center">
+                    <div class="text-base font-medium">{testimonial.name}</div>
+                    <div class="text-sm text-primary-950/70 dark:text-primary-200/70">
+                      {testimonial.description}
+                    </div>
+                  </div>
+                </figcaption>
+              </figure>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CALL TO ACTION -->
+  <section class="py-16 sm:py-20">
+    <div class="mx-auto max-w-2xl px-4 text-center sm:px-6 lg:max-w-7xl lg:px-8">
+      <div
+        class="flex flex-col items-center gap-8 rounded-3xl bg-primary-500/10 px-5 py-16 dark:bg-primary-400/10 sm:gap-10">
+        <div class="flex flex-col gap-4 sm:gap-6">
+          <h2 class="mx-auto max-w-sm text-3xl font-medium tracking-tight sm:text-4xl">
+            Let's make something amazing together
+          </h2>
+          <p class="mx-auto max-w-2xl text-lg text-primary-950/70 dark:text-primary-200/70">
+            Ac euismod vel sit maecenas id pellentesque eu sed consectetur. Malesuada adipiscing
+            sagittis vel nulla nec.
+          </p>
+        </div>
+        <a
+          href="/contact"
+          class="inline-flex items-center justify-center rounded-full border border-transparent bg-primary-600 px-5 py-3 text-base font-medium text-white transition hover:bg-primary-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600 dark:bg-primary-400 dark:text-primary-950 dark:hover:bg-primary-300 dark:focus-visible:outline-primary-400">
+          Contact us
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- END -->
 </Layout>
